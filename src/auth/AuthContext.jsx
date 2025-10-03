@@ -4,14 +4,14 @@
  * all of which update the token in state.
  */
 
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import { API } from "../api/Users";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   // token to verify a user
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   // state to manage register
   const register = async (credentials) => {
@@ -43,11 +43,23 @@ export function AuthProvider({ children }) {
     setToken(result.token);
   };
 
+  /** stores token in localStorage */
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
+
+  /** asks  users: are we logged in? */
+  const isLoggedIn = !!token;
+
   /** logout sets token to empty */
   const logout = () => setToken(null);
 
   /** allow children to use this */
-  const value = { token, register, login, logout };
+  const value = { token, register, login, isLoggedIn, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
