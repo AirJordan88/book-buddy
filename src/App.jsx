@@ -4,6 +4,7 @@ import Layout from "./catalognav/Layout";
 import BookDetailPage from "./Book_Details/BookDetailPage";
 import Register from "./auth/Register";
 import BooksPage from "./catalognav/BooksPage";
+import Login from "./auth/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/books" element={<BooksPage />} />
         <Route path="/books/:id" element={<BookDetailPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Route>
     </Routes>
   );
