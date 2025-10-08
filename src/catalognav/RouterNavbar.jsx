@@ -1,23 +1,29 @@
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
 export default function Navbar() {
   const { token, logout } = useAuth();
-  const { setPage } = usePage();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate("/books");
+  }
 
   return (
-    <header>
+    <header className="navbar">
       <p>📚 Book Buddy</p>
       <nav>
-        <a onClick={() => setPage("books")}>Books</a>
+        <Link to="/books">Books</Link>
         {token ? (
           <>
-            <a onClick={() => setPage("account")}>Account</a>
-            <a onClick={() => logout()}>Log Out</a>
+            <Link to="/account">Account</Link>
+            <button onClick={handleLogout}>Log Out</button>
           </>
         ) : (
           <>
-            <a onClick={() => setPage("register")}>Register</a>
-            <a onClick={() => setPage("login")}>Login</a>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
           </>
         )}
       </nav>
