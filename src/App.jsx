@@ -1,12 +1,17 @@
 import React from "react";
-import BookDetailPage from "./BookDetailPage";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./catalognav/Layout";
+import BookDetailPage from "./Book_Details/BookDetailPage";
+import Register from "./auth/Register";
 
 function App() {
   return (
-    <div>
-      <h1>Book Info</h1>
-      <BookDetailPage id="1" />
-    </div>
+    <Routes>
+      <Route index element={<BookDetailPage />} />
+
+      <Route path="/books" element={<BookDetailPage />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
   );
 }
 
