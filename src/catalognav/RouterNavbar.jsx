@@ -12,13 +12,17 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <p>📚 Book Buddy</p>
+      <div className="bookbuddy">
+        <img src="/books.png" alt="book buddy" />
+        <p>Book Buddy</p>
+      </div>
+
       <nav>
         <Link to="/books">Books</Link>
         {token ? (
           <>
             <Link to="/account">Account</Link>
-            <button onClick={handleLogout}>Log Out</button>
+            <Link onClick={handleLogout}>Log Out</Link>
           </>
         ) : (
           <>
