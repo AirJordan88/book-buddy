@@ -7,7 +7,7 @@ import Register from "./auth/Register";
 function App() {
   return (
     <Routes>
-      <Route element={Layout}>
+      <Route element={<Layout />}>
         <Route index element={<BookDetailPage />} />
 
         <Route path="/books" element={<BookDetailPage />} />
