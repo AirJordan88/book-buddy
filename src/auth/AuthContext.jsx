@@ -13,6 +13,8 @@ export function AuthProvider({ children }) {
   // token to verify a user
   const [token, setToken] = useState(localStorage.getItem("token"));
 
+  const [user, setUser] = useState(null);
+
   // state to manage register
   const register = async (credentials) => {
     const response = await fetch(API + "/users/register", {
@@ -43,12 +45,26 @@ export function AuthProvider({ children }) {
     setToken(result.token);
   };
 
-  /** stores token in localStorage */
+  const fetchuser = async (token) => {
+    const response = await fetch(`${API}/users/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const result = await response.json();
+    if (response.ok) {
+      setUser(result); // save user in state
+    }
+  };
+
+  /** stores token in localStorage
+   * saves user on change
+   */
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
+      fetchuser(token);
     } else {
       localStorage.removeItem("token");
+      setUser(null);
     }
   }, [token]);
 
@@ -59,7 +75,7 @@ export function AuthProvider({ children }) {
   const logout = () => setToken(null);
 
   /** allow children to use this */
-  const value = { token, register, login, isLoggedIn, logout };
+  const value = { token, register, login, user, isLoggedIn, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

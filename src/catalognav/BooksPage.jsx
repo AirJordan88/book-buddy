@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CatalogSearch from "./CatalogSearch";
+//import CatalogSearch from "./CatalogSearch";
 import CatalogList from "./CatalogList";
 
 export default function BooksPage() {
