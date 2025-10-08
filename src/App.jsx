@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./catalognav/Layout";
 import BookDetailPage from "./Book_Details/BookDetailPage";
 import Register from "./auth/Register";
+import Login from "./auth/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
         <Route path="/books" element={<BookDetailPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Route>
     </Routes>
   );
