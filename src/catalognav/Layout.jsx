@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import Navbar from "./RouterNavbar";
 
 /** The shared layout for all pages of the app */
