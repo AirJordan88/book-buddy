@@ -32,21 +32,23 @@ function CatalogListItem({ book, syncBooks }) {
   };
 
   return (
-    <li className="catalog-item">
-      <Link to={`/books/${book.id}`}>
-        <img src={book.coverimage} alt={`${book.title} cover`} width="100" />
+    <li className="catalog-item" style={{ marginBottom: "1rem" }}>
+      <Link
+        to={`/books/${book.id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <img
+          src={book.coverimage}
+          alt={`${book.title} cover`}
+          width="100"
+          style={{ display: "block", marginBottom: "0.5rem" }}
+        />
         <h3>{book.title}</h3>
         <p>{book.author}</p>
-        <p>{book.available ? "Availabe ✅" : "Checked Out ❌"}</p>
+        <p>{book.available ? "Available ✅" : "Checked Out ❌"}</p>
       </Link>
-
       {token && <button onClick={reserveBook}>Reserve Book</button>}
-
-      {error && (
-        <p role="alert" className="error">
-          {error}
-        </p>
-      )}
+      {error && <p role="alert">{error}</p>}
     </li>
   );
 }
