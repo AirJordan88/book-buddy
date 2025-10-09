@@ -1,8 +1,7 @@
 // src/catalognav/BooksPage.jsx
 import { useState, useEffect } from "react";
-//import CatalogSearch from "./CatalogSearch";
+
 import CatalogList from "./CatalogList";
-// import CatalogSearch from "./CatalogSearch"; // enable when ready
 
 export default function BooksPage() {
   const [books, setBooks] = useState([]);
@@ -62,7 +61,7 @@ export default function BooksPage() {
   return (
     <div className="books-page">
       <h1>Books</h1>
-      <CatalogSearch setBooks={setBooks} />
+      {/* <CatalogSearch setBooks={setBooks} /> */}
       <CatalogList books={books} syncBooks={syncBooks} />
     </div>
   );
