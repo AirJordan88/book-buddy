@@ -6,6 +6,7 @@ import Register from "./auth/Register";
 import BooksPage from "./catalognav/BooksPage";
 import Login from "./auth/Login";
 import Account from "./auth/Account";
+import NotFound from "./catalognav/NotFound";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
+        <Route path="*" element={<NotFound />} /> {/* ✅ Catch-all route */}
       </Route>
     </Routes>
   );
