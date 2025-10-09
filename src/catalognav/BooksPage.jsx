@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-//import CatalogSearch from "./CatalogSearch";
+//import CatalogSearch from "./CatalogSearch"; <== commented this out for now :)
 import CatalogList from "./CatalogList";
 
 export default function BooksPage() {
@@ -20,7 +20,7 @@ export default function BooksPage() {
   return (
     <div>
       <h1>Books</h1>
-      <CatalogSearch setBooks={setBooks} />
+      {/** <CatalogSearch setBooks={setBooks} /> <= this aswell */}
       <CatalogList books={books} syncBooks={syncBooks} />
     </div>
   );
