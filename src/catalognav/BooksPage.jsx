@@ -1,7 +1,7 @@
 // src/catalognav/BooksPage.jsx
 import { useState, useEffect } from "react";
+
 import CatalogList from "./CatalogList";
-// import CatalogSearch from "./CatalogSearch"; // enable when ready
 
 export default function BooksPage() {
   const [books, setBooks] = useState([]);
