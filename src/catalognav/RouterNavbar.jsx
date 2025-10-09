@@ -22,7 +22,9 @@ export default function Navbar() {
         {token ? (
           <>
             <Link to="/account">Account</Link>
-            <Link onClick={handleLogout}>Log Out</Link>
+            <Link to="#" onClick={handleLogout}>
+              Log Out
+            </Link>
           </>
         ) : (
           <>
