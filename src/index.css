@@ -164,3 +164,25 @@ button {
   text-align: center;
   margin-top: 1rem;
 }
+
+.catalog-item {
+  list-style: none;
+  background-color: #f7f5f5;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.catalog-item img {
+  float: left;
+  height: auto;
+  width: 15%;
+  margin-right: 1rem;
+  border-radius: 10px;
+}
+
+.catalog-item button {
+  border-radius: 10px;
+  color: white;
+  background-color: teal;
+}
