@@ -1,5 +1,6 @@
 import { useAuth } from "./AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import MyReservations from "../Book_Details/MyReservations";
 
 export default function Account() {
   const { user, isLoggedIn, logout } = useAuth();
@@ -30,7 +31,7 @@ export default function Account() {
 
       <div>
         <h2>Your reservations</h2>
-        <p>Role C will add this later</p>
+        <MyReservations />
       </div>
     </>
   );
